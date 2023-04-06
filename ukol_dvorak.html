@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang=cs>
+    <head>
+        <meta charset="utf-8" />
+        <title>Ukol</title>
+        <style type="text/css" media="screen">
+           * {
+                 margin: 0;
+                 padding: 0;
+            }
+            html, body {
+                height: 100%;
+                text-align: center;
+            }
+            body {
+                background-color: #eee;
+                width: 60%;
+                height: 60%;
+                font-family: sans-serif;
+                font-size: 16px;
+                margin: 0 auto;
+            }
+            div {
+	            border: 1px solid;
+	            width: 100%;
+	            box-sizing: border-box;
+    	    }
+            
+            #nadpis {
+                width: 100%;
+                height: 10%;
+                display: block;
+                background-color: rgb(218, 31, 31) 
+            }
+            #nadpis img {
+                width: 29.5%;
+                height: 100%;
+                display: inline-block;
+                float:left;
+            }
+            #nadpis p {
+                padding-right: 60%; 
+                padding-top: 1px;
+                display: inline-block;
+            
+            }
+            #menuT {
+                text-align: left;
+                width: 30%;
+                height: 100%;
+                display: inline-block;
+                float: left;
+                padding: 10px;
+                background-color: rgb(253, 253, 253)
+            }
+            #menuT li{
+                margin-left: 10px;
+                margin-top: 10px;
+            }
+        
+            #obsah {
+                text-align: left;
+                width: 70%;
+                height: 90%;
+                display: inline-block;
+                padding: 10px;
+                background-color: rgb(106, 223, 231)
+                
+            }
+            #obsah p{
+                padding-left: 10px;
+            }
+            #obsah form{
+                padding-left: 10px;
+            }
+            #paticka {
+                width: 70%;
+                height: 10%;
+                display: inline-block;
+                float: left;
+            }
+            #widget{
+                width: 100px;
+                height: auto;   
+                position: fixed;
+                top: 6%;
+                right: 20%;
+                float: left;
+            }
+            #widget img{
+                width: 90%;
+                height: 90%;
+                
+            }
+            @media (max-width:640px)
+         {
+            
+	        #widget, #nadpis img {
+		        display: none;
+	        }
+	        html, body {
+		        height: auto;
+		        width: 90%;
+		        margin: 2.5% auto;
+	        }
+	        #nadpis, #menuT, #obsah, #paticka {
+		        width: 100%; 
+            }
+	        ul li {
+                margin: 0 20px 10px 0;
+                padding: 0;
+                width: 40%;
+                float: left;
+                
+            
+            }
+            .nobull {
+             list-style-type: none;
+             display: none;
+             }
+        }
+        
+        </style>
+    </head>
+    <body>
+        <div id="nadpis">
+            <img src="http://www.smat.se/wp-content/uploads/2011/11/316800_10150273766376744_145002141743_8313426_5434957_n.jpg">
+            <p>Název</p>
+        </div>
+        <div id="obsah">
+            <script type="text/javascript">
+                window.addEventListener('load', function(e) {
+                  function trim(value) {
+                    return value.replace(/^[\s\t]+/g, '').replace(/[\s\t]+$/g, '');
+                  }
+                
+                  document.getElementById('person-form').addEventListener('submit', function(e) {
+                    var
+                      fn = trim(document.getElementById('fname').value),
+                      bd = trim(document.getElementById('birth-date').value),
+                      em = trim(document.getElementById('email').value)
+                    ;
+                    if (!fn || /[^a-záčďéěíňóřšťúůýž]\s+[^a-záčďéěíňóřšťúůýž]/gi.test(fn)) {
+                      alert('Formulářové pole „Jméno“ musí být správně vyplněno!');
+                      e.preventDefault();
+                      return false;
+                    }
+                    if (!/^[0-9]{2}\.[0-9]{2}\.[0-9]{4}$/gi.test(bd)) {
+                      alert('Formulářové pole „Datum narození“ musí být správně vyplněno!');
+                      e.preventDefault();
+                      return false;
+                    }
+                    if (!/^[a-z_\.\-]+@[a-z_\.\-]+[a-z]{2,3}$/gi.test(em)) {
+                      alert('Formulářové pole „Email“ musí být správně vyplněno!');
+                      e.preventDefault();
+                      return false;
+                    }
+                  });
+                });
+              </script>
+            <p>Hlavní obsah</p>
+            <form id="person-form" method="post" action="ukol_dvorak.html">
+                <label for="fname">Jméno:</label><br>
+                <input type="text" id="fname" name="fname" value="" placeholder="Luděk Dvořák"><br>
+                <label for="dnarozeni">Datum Narození:</label><br>
+                <input type="text" name="birthDate" id="birth-date" value="" placeholder="dd.mm.rrrr" /><br>
+                <label for="dnarozeni">E-mail:</label><br>
+                <input type="text" name="email" id="email" value="" placeholder="ludek@dvorak.cz" /><br>
+                <input type="submit" value="Potvrdit a odeslat">
+        </div>
+        <div id="widget">
+            <p>Plovoucí widget</p>
+            <img src="http://www.smat.se/wp-content/uploads/2011/11/316800_10150273766376744_145002141743_8313426_5434957_n.jpg">
+        </div>
+        <div id="paticka">
+            <p>Zápatí</p>
+        </div>
+        
+
+    </body>
+
+</style>
